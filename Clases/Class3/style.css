@@ -7,7 +7,7 @@ header {
   background-repeat: no-repeat;
 }
 
-header a{
+header a {
   position: relative;
   left: 5%;
   top: 50px;
@@ -29,7 +29,7 @@ header nav a {
   left: 70%;
 }
 
-header  h1 {
+header h1 {
   color: #ffffff;
   position: relative;
   top: 60%;
@@ -112,19 +112,19 @@ main div article a {
   padding-right: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #a83905 ;
+  background-color: #a83905;
   color: #ffffff;
   font-size: 120%;
   width: 200px;
 }
 
-#dolar{
-    font-size: 200%;
-    font-weight: bold;
-    color: #03990f; 
+#dolar {
+  font-size: 200%;
+  font-weight: bold;
+  color: #03990f;
 }
 
-main a{
+main a {
   position: relative;
   justify-content: center;
   left: 90%;
@@ -182,3 +182,39 @@ main a{
 }
 
 /* -------------------------------------- */
+
+#nuestroBlog img {
+  width: 400px;
+}
+
+#nuestroBlog div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 900px;
+}
+
+#nuestroBlog h2 {
+  align-self: center;
+  margin-left: 200px;
+}
+
+#nuestroBlog h3 {
+  position: absolute;
+  left: 450px;
+  bottom: -211%;
+  font-size: 150%;
+}
+
+#nuestroBlog #p1{
+  position: absolute;
+  width: 300px;
+  left: 450px;
+}
+
+#nuestroBlog #p2{
+  position: absolute;
+  width: 300px;
+  left: 450px;
+  bottom: -225%;
+}
