@@ -187,34 +187,13 @@ main a {
   width: 400px;
 }
 
-#nuestroBlog div {
+#nuestroBlog  {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 900px;
-}
+  flex-wrap:  wrap;
+  align-content: space-between;
+  justify-content: center;
 
-#nuestroBlog h2 {
-  align-self: center;
-  margin-left: 200px;
-}
-
-#nuestroBlog h3 {
-  position: absolute;
-  left: 450px;
-  bottom: -211%;
-  font-size: 150%;
-}
-
-#nuestroBlog #p1{
-  position: absolute;
-  width: 300px;
-  left: 450px;
-}
-
-#nuestroBlog #p2{
-  position: absolute;
-  width: 300px;
-  left: 450px;
-  bottom: -225%;
+  width: 800px;
+  height: 400px;
 }
