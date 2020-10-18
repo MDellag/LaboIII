@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: center;
+
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 3px;
+}
+
+td{
+    width: 170px;
+    text-align: center;
+}
