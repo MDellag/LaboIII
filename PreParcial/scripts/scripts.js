@@ -176,7 +176,7 @@ function InicializarManejadores() {
         if(newPerson){ //si newPerson es distinto de NULL
             listPers.push(newPerson); //cargamos el array
             saveData(listPers); //guardamos el array en LocalStorage
-            updateList(listPers); //actualizamos la pagina
+            updateList(listPers, divTabla); //actualizamos la pagina
         }
 
         //#region formas de obtener datos desde HTML
@@ -192,7 +192,7 @@ function InicializarManejadores() {
         e.preventDefault(); //averiguar bien que hace esto
         
         DeleteList(listPers); //borramos la lista
-        updateList(listPers); //actualizamos todo
+        updateList(listPers, divTabla); //actualizamos todo
     });
 
     btnShowList = document.getElementById('btnShowList');

@@ -44,7 +44,7 @@ export function saveData(listPers){
     localStorage.setItem('nextID', nextId++);
 }
 
-export function updateList(listPers){
+export function updateList(listPers, divTabla){
 
     while(divTabla.firstChild){ //Este codigo elimina todos los child dentro del Div para recrearlos de 0
         divTabla.removeChild(divTabla.firstChild);
@@ -60,4 +60,20 @@ export function DeleteList(listPers){
     listPers = getPersons();
     nextId = getId();
     console.log('Se ha borrado el local Storage');
+}
+
+
+export function DeletePerson(id){
+   const listaP = getPersons();
+
+   for(const per in listaP){
+     if(per.id === id)
+     {
+       listaP.filter(per);
+       break;
+     }
+   }
+
+   saveData(listaP);
+   updateList(listaP);
 }

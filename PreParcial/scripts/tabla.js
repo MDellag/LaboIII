@@ -1,9 +1,8 @@
-
 //Esta es la manera de exportar una funcion o algo
 //si no le pongo default tengo que usar las Llaves - import { crearTabla } from "./Tabla.js"
 export default function crearTabla(list){
     const table = document.createElement('table');
-
+    table.className = 'greenTable';
     table.appendChild(crearCabecera(list[0]));
     table.appendChild(crearCuerpo(list));
 
@@ -61,7 +60,6 @@ function myEvent(elem){
 
             // Sea lo que sea es dataset.id ya sea que necesite un name, lastname, etc
             console.log(e.path[1].dataset.id);
-            
             e.stopPropagation();
         }, true);
     }
