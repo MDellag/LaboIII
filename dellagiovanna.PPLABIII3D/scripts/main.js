@@ -1,5 +1,4 @@
-import crearTabla from "./tabla.js";
-import Anuncio_Auto from "./Anuncios.js";
+import { Anuncio_Auto as Anuncio} from "./Anuncios.js";
 
 let listaVehiculos;
 let divTabla;
@@ -9,25 +8,22 @@ window.addEventListener("load", InicializarManejadores);
 
 function InicializarManejadores() {
   listaVehiculos = getVehicles();
+  sleep(listaVehiculos, Anuncio.updateList);
 
   divTabla = document.getElementById("divTabla");
 
+  btnSave();
+
+  // updateList(listaVehiculos);
+}
+
+function btnSave() {
   const formAnuncio = document.forms[0];
   const BtnForm = document.getElementById("btnGuardar");
   BtnForm.addEventListener("click", (e) => {
     e.preventDefault();
-    const newAnuncio = generarAnuncio(formAnuncio);
-    if (newAnuncio) {
-      listaVehiculos.push(newAnuncio);
-      saveData(listaVehiculos);
-      updateList(listaVehiculos, divTabla);
-    }
-  });
-
-  const btnMostrar = document.getElementById("btnMostrar");
-  btnMostrar.addEventListener("click", (e) => {
-    e.preventDefault();
-    updateList(listaVehiculos);
+    const newAnuncio = Anuncio.generarAnuncio(formAnuncio);
+    sleep(newAnuncio, Anuncio.saveAnuncio)
   });
 }
 
@@ -36,18 +32,30 @@ export function getVehicles() {
   return JSON.parse(localStorage.getItem("vehiculos")) || [];
 }
 
-export function getId() {
-  return JSON.parse(localStorage.getItem("nextID")) || 1;
+
+
+
+
+/* function saveAnuncio(newAnuncio) {
+  if (newAnuncio) {
+    listaVehiculos.push(newAnuncio);
+    saveData(listaVehiculos);
+    updateList(listaVehiculos, divTabla);
+  }
 }
+
 
 function generarAnuncio(frm) {
   nextID = getId();
-  const anuncio = new Anuncio(
+  const anuncio = new Anuncio_Auto(
     nextID,
     frm.txtTitulo.value,
     frm.rdo.value,
     frm.txtDescripcion.value,
-    frm.txtPrecio.value
+    frm.txtPrecio.value,
+    frm.txtPuertas.value,
+    frm.txtKMS.value,
+    frm.txtPotencia.value
   );
 
   return anuncio;
@@ -64,4 +72,21 @@ function updateList(listAnuncios) {
     divTabla.removeChild(divTabla.firstChild);
   }
   divTabla.appendChild(crearTabla(listAnuncios));
+} */
+
+function sleep(item, func) {
+  const div = document.getElementById("spinnerContainer");
+  const img = document.createElement("img");
+  img.src = "./images/wheelspinner.svg";
+  const lbl = document.createElement("label");
+  lbl.appendChild(document.createTextNode("Loading.."));
+  img.className = "spinner";
+  div.appendChild(img);
+  div.appendChild(lbl);
+  setTimeout(() => {
+    while (div.hasChildNodes()) {
+      div.removeChild(div.firstChild);
+    }
+    func(item);
+  }, 4000);
 }
