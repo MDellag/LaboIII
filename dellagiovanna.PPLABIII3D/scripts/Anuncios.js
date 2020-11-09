@@ -1,4 +1,5 @@
 import crearTabla from "./tabla.js";
+import { listaVehiculos } from './main.js'
 
 class Anuncio {
   constructor(id, titulo, transaccion, descripcion, precio) {
@@ -31,33 +32,23 @@ export class Anuncio_Auto extends Anuncio {
     this.potencia = potencia;
   }
 
-  listaVehiculos = Anuncio_Auto.getVehicles();
+  
+}
 
-  static saveAnuncio(newAnuncio) {
-    
-    if (newAnuncio) {
-      listaVehiculos.push(newAnuncio);
-      Anuncio_Auto.saveData(listaVehiculos);
-      Anuncio_Auto.updateList(listaVehiculos, divTabla);
+
+  // const listaVehiculos = getVehicles();
+  let nextID = getId();
+  
+
+  export function updateList(listaVehiculos) {
+    while (divTabla.firstChild) {
+      //Este codigo elimina todos los child dentro del Div para recrearlos de 0
+      divTabla.removeChild(divTabla.firstChild);
     }
+    divTabla.appendChild(crearTabla(listaVehiculos));
   }
 
-  static saveData(listAnuncios) {
-    localStorage.setItem("vehiculos", JSON.stringify(listAnuncios));
-    localStorage.setItem("nextID", nextID++);
-  }
-
-  static getVehicles() {
-    //si Json.parse() devulve null entonces me trae un array vacio
-    return JSON.parse(localStorage.getItem("vehiculos")) || [];
-  }
-
-  static getId() {
-    return JSON.parse(localStorage.getItem("nextID")) || 1;
-  }
-
-  static generarAnuncio(frm) {
-    const nextID = Anuncio_Auto.getId();
+  export function generarAnuncio(frm) {
     const anuncio = new Anuncio_Auto(
       nextID + 1,
       frm.txtTitulo.value,
@@ -72,11 +63,29 @@ export class Anuncio_Auto extends Anuncio {
     return anuncio;
   }
 
-  static updateList(listAnuncios) {
-    while (divTabla.firstChild) {
-      //Este codigo elimina todos los child dentro del Div para recrearlos de 0
-      divTabla.removeChild(divTabla.firstChild);
+  export function saveAnuncio(newAnuncio) {
+    
+    if (newAnuncio) {
+      listaVehiculos.push(newAnuncio);
+      saveData(Anuncio_Auto.listaVehiculos);
+      updateList(listaVehiculos);
     }
-    divTabla.appendChild(crearTabla(listAnuncios));
   }
-}
+
+  function saveData(listAnuncios) {
+    localStorage.setItem("vehiculos", JSON.stringify(listAnuncios));
+    localStorage.setItem("nextID", nextID++);
+  }
+
+   /* function getVehicles() {
+    //si Json.parse() devulve null entonces me trae un array vacio
+    return JSON.parse(localStorage.getItem("vehiculos")) || [];
+  } */
+
+  function getId() {
+    return JSON.parse(localStorage.getItem("nextID")) || 1;
+  }
+
+  
+
+  

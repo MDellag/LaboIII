@@ -1,14 +1,15 @@
-import { Anuncio_Auto as Anuncio} from "./Anuncios.js";
+import { updateList, generarAnuncio, saveAnuncio} from "./Anuncios.js";
 
-let listaVehiculos;
+export let listaVehiculos;
 let divTabla;
 let nextID;
 
 window.addEventListener("load", InicializarManejadores);
 
 function InicializarManejadores() {
+  localStorage.clear('vehiculos');
   listaVehiculos = getVehicles();
-  sleep(listaVehiculos, Anuncio.updateList);
+  sleep(listaVehiculos,updateList);
 
   divTabla = document.getElementById("divTabla");
 
@@ -22,8 +23,8 @@ function btnSave() {
   const BtnForm = document.getElementById("btnGuardar");
   BtnForm.addEventListener("click", (e) => {
     e.preventDefault();
-    const newAnuncio = Anuncio.generarAnuncio(formAnuncio);
-    sleep(newAnuncio, Anuncio.saveAnuncio)
+    const newAnuncio = generarAnuncio(formAnuncio);
+    sleep(newAnuncio, saveAnuncio);
   });
 }
 
@@ -87,6 +88,7 @@ function sleep(item, func) {
     while (div.hasChildNodes()) {
       div.removeChild(div.firstChild);
     }
-    func(item);
-  }, 4000);
+    if(item)func(item);
+    else func();
+  }, 1000);
 }
