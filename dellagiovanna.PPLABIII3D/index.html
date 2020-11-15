@@ -36,23 +36,23 @@
                         value="Alquiler">Alquiler</label>
             </div>
 
-            <h4>DESCRIPCION</h4>
+            <h4>DESCRIPCION:</h4>
             <input type="text" name="txtDescripcion" id="txtDescripcion" placeholder="Descripcion" required> <br />
-            <h4>PRECIO</h4> <br />
+            <h4>PRECIO:</h4> <br />
             <input type="text" name="txtPrecio" id="txtPrecio" placeholder="Precio:" required> <br />
 
             <div class="divFieldset">
                 <div>
                     <img src="./images/door.ico" alt="imgPuertas" class="imgVehiculo"> <input type="text"
-                        name="txtPuertas" id="txtPuertas" placeholder="Puertas:">
+                        name="txtPuertas" id="txtPuertas" placeholder="Puertas:" required>
                 </div>
                 <div>
                     <img src="./images/speed.ico" alt="imgKms" class="imgVehiculo"> <input type="text" name="txtKMS"
-                        id="txtKMS" placeholder="KMs:">
+                        id="txtKMS" placeholder="KMs:" required>
                 </div>
                 <div>
                     <img src="./images/engine.ico" alt="imgPotencia" class="imgVehiculo"> <input type="text"
-                        name="txtPotencia" id="txtPotencia" placeholder="Potencia:">
+                        name="txtPotencia" id="txtPotencia" placeholder="Potencia:" required>
                 </div>
             </div>
         </fieldset>
@@ -60,7 +60,9 @@
     <div id="divBtn">
         <div>
             <Button id="btnGuardar">Guardar</Button>
-            <input type="button" value="Mostrar Anuncios" id="btnMostrar">
+            <Button id="btnUpdate">Update</Button>
+            <Button id="btnBorrarPorID">Borrar Anuncio por ID</Button>
+            <Button id="btnBorrar">Borrar Todos los Anuncios</Button>
         </div>
     </div>
 

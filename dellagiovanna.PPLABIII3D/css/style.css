@@ -86,10 +86,12 @@ fieldset {
 
 .divFieldset div {
   width: 33.3%;
+  display: flex;
+  align-items: center;
 }
 
 .divFieldset div img {
-  position: relative;
+  /* position: relative; */
   top: 20px;
 }
 
@@ -114,6 +116,7 @@ h4 {
 
 .divCheck label {
   font-size: 115%;
+  font-weight: bold;
 }
 
 input[type="radio"] {
@@ -220,8 +223,8 @@ table.colorTable tfoot .links a {
 
 #divBtn div {
   display: flex;
-  justify-content: space-around;
-  width: 1080px;
+  justify-content: space-between;
+  width: 51.5%;
 }
 
 #spinnerContainer {
