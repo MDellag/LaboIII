@@ -177,5 +177,5 @@ function sleep(func) {
       div.removeChild(div.firstChild);
     }
     if (func) func();
-  }, 1000);
+  }, 3000);
 }
