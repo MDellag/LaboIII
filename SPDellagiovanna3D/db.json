@@ -29,6 +29,16 @@
       "puertas": "5",
       "kms": "54670",
       "potencia": "410cp"
+    },
+    {
+      "id": 4,
+      "titulo": "Chevrolet Onix",
+      "transaccion": "Venta",
+      "descripcion": "Auto Gama Media",
+      "precio": "568000",
+      "puertas": "5",
+      "kms": "78600",
+      "potencia": "340cp"
     }
   ]
 }

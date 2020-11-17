@@ -24,6 +24,7 @@ async function InicializarManejadores() {
   btnBorrarAnuncioPorID();
   btnUpdateAnuncioPorID();
   myFilterFunc();
+  checkBoxFilter();
 }
 
 /* ---------- Funciones de Buttons ----------- */
@@ -192,7 +193,7 @@ async function saveAnuncio(newAnuncio) {
 async function borrarAnuncioPorID() {
   let idAnuncio = prompt("Indique ID del anuncio a borrar");
   if (idAnuncio) {
-    const config= {
+    const config = {
       method: "DELETE",
       headers: {
         "content-type": "application/json;charset=utf-8"
@@ -235,23 +236,23 @@ function sleep(func) {
 
 
 
-function myFilterFunc(){
-  BtnFilter.addEventListener("keyup", function(event) {
+function myFilterFunc() {
+  BtnFilter.addEventListener("keyup", function (event) {
     // Number 13 is the "Enter" key on the keyboard
-    myFunction();
+    filter();
   });
 }
 
 
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
+function filter() {
+  // Variables
+  let input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("txtFilter");
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
 
-  // Loop through all table rows, and hide those who don't match the search query
+  // Loop a traves de las filas
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
@@ -263,4 +264,20 @@ function myFunction() {
       }
     }
   }
+}
+
+const chk = document.getElementById("fTitulo");
+table = document.getElementById("myTable");
+
+async function checkBoxFilter() {
+  chk.addEventListener('change', function () {
+    if (!this.checked) {
+      const newList = listaVehiculos.map{}
+
+    }
+
+    else {
+
+    }
+  });
 }
