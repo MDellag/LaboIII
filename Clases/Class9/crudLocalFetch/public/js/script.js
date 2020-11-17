@@ -53,7 +53,7 @@ const crearItems = (data) => {
 //#endregion
 
 //#region nuevo traer Personas con fetch
-async function traerPersonas() {
+ function traerPersonas() {
   /* while (ol.hasChildNodes()) {
     ol.removeChild(ol.firstChild);
   } */
@@ -62,9 +62,9 @@ async function traerPersonas() {
   spinner.appendChild(crearSpinner()); //no hace el spinner.. y no trae personas
 
   try {
-    const res = await fetch("http://localhost:3000/personas");
     //#region codeviejo
-    /* .then(res => {
+    fetch("http://localhost:3000/personas")
+    .then(res => {
         if (!res.ok) return Promise.reject(res);
         return res.json(); //esto me dice que va a devolver una promesa entonces si es ok, lo capturo en el sigueinte .then( )
       })
@@ -77,7 +77,7 @@ async function traerPersonas() {
       })
       .finally(() => {
         spinner.removeChild(spinner.firstChild);
-      }); */
+      });
     //#endregion
     
     if (!res.ok) throw Error('error en await Fetch');
