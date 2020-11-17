@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./scripts/main.js" type="module"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./scripts/main.js"  type="module"></script>
+
+    <title>Segundo Parcial</title>
 </head>
 
 <body>
-    <header>
+    <header class="navbar">
         <img src="./images/drivenLogo.svg" alt="">
-        <nav>
+        <nav class="nav">
             <a href="./nosotros.html">Nosotros</a>
             <a href="./anuncios.html">Anuncios</a>
             <a href="./blog.html">Blog</a>
@@ -24,10 +27,12 @@
     <img src="./images/bluecarHeader.jpg" alt="fotoAuto">
     <form class="container">
         <fieldset>
+
             <legend>Informacion del Anuncio</legend>
-            <h4>TITULO:</h4>
-            <input type="text" name="txtTitulo" id="txtTitulo" placeholder="Titulo" required/> <br />
-            <h4> TRANSACCION: </h4>
+            <h3>TITULO:</h3>
+
+            <input type="text" name="txtTitulo" id="txtTitulo" placeholder="Titulo" required/> <br /><br/>
+            <h3> TRANSACCION: </h3>
 
             <div class="divCheck">
                 <label for="rdoVenta"> <input type="radio" name="rdo" id="rdoVenta" value="Venta" class="checkMark"
@@ -36,33 +41,44 @@
                         value="Alquiler">Alquiler</label>
             </div>
 
-            <h4>DESCRIPCION:</h4>
-            <input type="text" name="txtDescripcion" id="txtDescripcion" placeholder="Descripcion" required/> <br />
-            <h4>PRECIO:</h4> <br />
-            <input type="text" name="txtPrecio" id="txtPrecio" placeholder="Precio:" required/> <br />
+
+            <h3>DESCRIPCION:</h3>
+            <input type="text" name="txtDescripcion" id="txtDescripcion" placeholder="Descripcion" required/> <br/><br/>
+           
+            <h3>PRECIO:</h3> 
+            <input type="text" name="txtPrecio" id="txtPrecio" placeholder="Precio:" required/> <br/><br/>
 
             <div class="divFieldset">
                 <div>
                     <img src="./images/door.ico" alt="imgPuertas" class="imgVehiculo"> <input type="text"
                         name="txtPuertas" id="txtPuertas" placeholder="Puertas:" required/>
                 </div>
+
                 <div>
                     <img src="./images/speed.ico" alt="imgKms" class="imgVehiculo"> <input type="text" name="txtKMS"
                         id="txtKMS" placeholder="KMs:" required/>
                 </div>
+
                 <div>
                     <img src="./images/engine.ico" alt="imgPotencia" class="imgVehiculo"> <input type="text"
                         name="txtPotencia" id="txtPotencia" placeholder="Potencia:" required/>
                 </div>
             </div>
+            
+            <br>
+
+            <div>
+                <h3>Filter:</h3>
+                <input type="text"  name="txtFilter" id="txtFilter"  onkeypress="filterTableFunc()" placeholder="Filtrar por Titulo"/>
+            </div>
         </fieldset>
     </form>
     <div id="divBtn">
         <div>
-            <Button id="btnGuardar">Guardar</Button>
-            <Button id="btnUpdate">Update</Button>
-            <Button id="btnBorrarPorID">Borrar Anuncio por ID</Button>
-            <Button id="btnBorrar">Borrar Todos los Anuncios</Button>
+            <Button id="btnGuardar" class="btn-lg">Guardar</Button>
+            <Button id="btnUpdate" class="btn-lg">Update</Button>
+            <Button id="btnBorrarPorID" class="btn-lg">Borrar Anuncio por ID</Button>
+            <!-- <Button id="btnBorrar" class="btn-lg">Borrar Todos los Anuncios</Button> -->
         </div>
     </div>
 
@@ -74,7 +90,7 @@
 
 
 
-    <div id="footer">
+    <footer id="footer">
         <nav>
             <a href="./nosotros.html">Nosotros</a>
             <a href="./anuncios.html">Anuncios</a>
@@ -83,7 +99,7 @@
         </nav>
 
         <p>Todos los derechos reservados 2020 &copy;</p>
-    </div>
+    </footer>
 
 </body>
 
